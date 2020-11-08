@@ -1,11 +1,15 @@
  <h1>List of photos</h1>
 
-<form action="/insert_user_record">
-  <label for="browser_username">Username</label>
-  <input id="browser_username" type="text" name="input_username" placeholder="Enter a username..." data-kwimpalastatus="alive" data-kwimpalaid="1604790776867-0">
+<form action="/insert_photo">
+  <label for="image_box">Image</label>
+  <input id="image_box" type="text" name="query_image" placeholder="Enter a URL for the image...">
+  <label for="caption_box">Caption</label>
+  <input id="caption_box" type="text" name="query_caption" placeholder="Enter a caption for the photo...">
+  <label for="id_box">Owner ID</label>
+  <input id="id_box" type="text" name="query_id" placeholder="Enter an ID of a User...">
 
   <button>Add photo</button>
-
+</form>
 
 <hr>
 

@@ -14,5 +14,30 @@ class PhotosController < ApplicationController
 
     render ({:template => "photos_templates/show.html.erb"})
   end
+  
+  def delete
+  the_id = params.fetch("path_id")
+  the_photo = Photo.where({:id => the_id}).first
+  the_photo.destroy
+  redirect_to("/photos")
+  # render ({:template => "photos_templates/delete.html.erb"})
+  end
+
+  def create
+    input_image = params.fetch("query image")
+    input_caption = params.fetch("query caption")
+    input_owner_id = params.fetch("query owner_id")
+    
+    a_new_photo = Photo.new
+    
+    a_new_photo.image = input_image
+    a_new_photo.caption = input_caption
+    a_new_photo.owner_id = input_owner_id
+
+    a_new_photo.save
+
+    redirect_to("/photos/" + a_new_photo.id.to_s)
+    # render({:template => "photos_templates/create.html.erb"})
+  end
 
 end
