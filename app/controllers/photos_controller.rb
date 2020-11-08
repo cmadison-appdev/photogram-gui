@@ -8,9 +8,9 @@ class PhotosController < ApplicationController
   
   def show
     #  Parameters: {"path_username"=>"sample"}
-    url_photo = params.fetch("path_username")
-    matching_usernames = User.where({ :username => url_username})
-    @the_user = matching_usernames.first
+    url_photo = params.fetch("path_id")
+    matching_ids = Photo.where({ :id => url_photo})
+    @the_photo = matching_ids.first
 
     render ({:template => "photos_templates/show.html.erb"})
   end
