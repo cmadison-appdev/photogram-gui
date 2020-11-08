@@ -1,0 +1,51 @@
+ <h1>List of photos</h1>
+
+<form action="/insert_user_record">
+  <label for="browser_username">Username</label>
+  <input id="browser_username" type="text" name="input_username" placeholder="Enter a username..." data-kwimpalastatus="alive" data-kwimpalaid="1604790776867-0">
+
+  <button>Add photo</button>
+
+
+<hr>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>
+        Image
+      </th>
+      <th>
+        Caption
+      </th>
+      <th>
+        Owner
+      </th>
+      <th>
+        Posted
+      </th>
+      <th>
+      </th>
+    </tr>
+
+  <% @list_of_photos.each do |a_photo| %> 
+    <tr>
+      <td>
+        <img src="<%= a_photo.image %>">
+      </td>
+      <td>
+        <%= a_photo.caption %>
+      </td>
+      <td>
+        <%= a_photo.poster.username %>
+      </td>
+      <td>
+        <%= a_photo.caption %>
+      </td>
+      <td>
+        <a href="/photos/<%= a_photo.id %>">
+          Show details
+      </td>
+    </tr>
+<% end %>
+</table>
