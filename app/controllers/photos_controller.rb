@@ -40,4 +40,26 @@ class PhotosController < ApplicationController
     # render({:template => "photos_templates/create.html.erb"})
   end
 
+  def update
+    the_id = params.fetch("photo_id")
+
+    photo = Photo.where({ :id => the_id }).first
+    photo.image = params.fetch("input_image")
+    photo.caption = params.fetch("input_caption")
+    # photo.neighborhood = params.fetch("query_neighborhood")
+    photo.save
+    
+    redirect_to("/photos/#{photo.id}")
+  end
+  def add_comment
+    comment = Comment.new
+    comment.author_id = params.fetch("input_author_id")
+    comment.photo_id = params.fetch("input_photo_id")
+    comment.body = params.fetch("input_body")
+    comment.save
+    
+    
+    
+    redirect_to("/photos/#{comment.photo_id}")
+  end
 end
